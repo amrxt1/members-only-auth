@@ -1,0 +1,18 @@
+<% if member_signed_in? %>
+    <%= link_to 'Sign Out' , destroy_member_session_path%>
+<% else %>
+    <%= link_to 'Log In' , new_member_session_path%>
+<%end%>
+<%= link_to 'Create Post', new_post_path%>
+<h1>Posts : </h1>
+<ul>
+    <% @posts.each do |post| %>
+    <li>
+        <h2> <%= post.title %> </h3>
+        <p> <%= post.body %> </p>
+        <% if member_signed_in?%>
+            <h4>Author : <%= post.member.email %></h4>
+        <% end %>
+    </li>
+    <% end %>
+</ul>
