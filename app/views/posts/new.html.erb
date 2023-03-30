@@ -1,5 +1,7 @@
 <h1>Create a New Post</h1>
 
-<%= form_with :model @post do |form|%>
-    <%= form.text_field %>
-<% end %>
+<%= form_with model: @post do |form|%>
+	<%= form.text_field :title%>
+	<%= form.text_field :body%>
+	<%= form.submit "Create Post"%>
+<%end%>
